@@ -68,26 +68,26 @@ const storeSchema = new mongoose.Schema(
     },
     storeEmail: {
       type: String,
-      required: [true, "Please enter your email"],
-      validate: [
-        {
-          validator: function (email) {
-            return validator.isEmail(email);
-          },
-          messages: `Please enter a valid email`,
-        },
-      ],
+      // required: [true, "Please enter your email"],
+      // validate: [
+      //   {
+      //     validator: function (email) {
+      //       return validator.isEmail(email);
+      //     },
+      //     messages: `Please enter a valid email`,
+      //   },
+      // ],
     },
     storeWebsite: {
       type: String,
-      validate: [
-        {
-          validator: function (website) {
-            return validator.isURL(website);
-          },
-          messages: `Please enter a valid website`,
-        },
-      ],
+      // validate: [
+      //   {
+      //     validator: function (website) {
+      //       return validator.isURL(website);
+      //     },
+      //     messages: `Please enter a valid website`,
+      //   },
+      // ],
     },
     storeDescription: {
       type: String,

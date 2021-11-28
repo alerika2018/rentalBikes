@@ -67,7 +67,7 @@ const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
         setCounter((prev) => prev + 1);
         handleClose(true);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log("ERROR AT SAVING STORE:", error));
   };
 
   const handleNext = (e) => {

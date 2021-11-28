@@ -14,16 +14,39 @@ const postStore = (req, res) => {
     storeRentals: req.body.storeRentals,
     latLng: req.body.latLng,
   });
-
   StoreSchema.save()
     .then((result) => {
       res.status(201).json({
         data: StoreSchema._id,
       });
-      // res.status(201).send();
+
       console.log("Store saved");
     })
-    .catch((error) => console.log(error)); //res.send(error));
+    .catch((error) => console.log(error));
+
+  // let StoreSchema = new Store({
+  //   storeName: req.body.storeName,
+  //   storeAddress: req.body.storeAddress,
+  //   storeProvince: req.body.storeProvince,
+  //   storeCity: req.body.storeCity,
+  //   storePhone: req.body.storePhone,
+  //   storeEmail: req.body.storeEmail,
+  //   storeWebsite: req.body.storeWebsite,
+  //   storeDescription: req.body.storeDescription,
+  //   storeHours: req.body.storeHours,
+  //   storeRentals: req.body.storeRentals,
+  //   latLng: req.body.latLng,
+  // });
+
+  // StoreSchema.save()
+  //   .then((result) => {
+  //     res.status(201).json({
+  //       data: StoreSchema._id,
+  //     });
+
+  //     console.log("Store saved");
+  //   })
+  //   .catch((error) => console.log(error));
 };
 
 const getStores = (req, res) => {
