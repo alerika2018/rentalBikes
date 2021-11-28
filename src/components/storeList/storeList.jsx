@@ -5,8 +5,14 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { FaShareSquare } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
 
-const StoreList = ({ setTotalStoresFound, totalStoresFound, counter }) => {
+const StoreList = ({
+  setTotalStoresFound,
+  totalStoresFound,
+  counter,
+  setCounter,
+}) => {
   const [storeList, setStoreList] = useState([]);
   const [getPics, setGetPics] = useState([]);
 
@@ -15,7 +21,6 @@ const StoreList = ({ setTotalStoresFound, totalStoresFound, counter }) => {
       .get("/api/store")
       .then((results) => {
         setStoreList(results.data);
-
         setTotalStoresFound(results.data.length);
 
         axios
@@ -31,6 +36,15 @@ const StoreList = ({ setTotalStoresFound, totalStoresFound, counter }) => {
       })
       .catch((error) => console.log(error));
   }, [counter]);
+
+  const handleDelete = (id) => {
+    axios
+      .delete(`/api/store/${id}`)
+      .then((results) => {
+        setCounter((prev) => prev + 1);
+      })
+      .catch((error) => console.log(error));
+  };
 
   return (
     <Container>
@@ -53,12 +67,18 @@ const StoreList = ({ setTotalStoresFound, totalStoresFound, counter }) => {
                 <FaShareSquare />
               </Link>
             </div>
-            <div>
+            <div className="metaData">
               <h2>{store.data.storeName}</h2>
+
               <p>{store.data.storeAddress}</p>
               <a href={store.data.storeWebsite} target="_blank">
                 {store.data.storeWebsite}
               </a>
+              <div className="delete">
+                <button onClick={() => handleDelete(store.data._id)}>
+                  <FaTrashAlt />
+                </button>
+              </div>
             </div>
           </div>
         ))}

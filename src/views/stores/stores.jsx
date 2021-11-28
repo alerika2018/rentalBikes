@@ -72,6 +72,7 @@ export const Stores = () => {
         setTotalStoresFound={setTotalStoresFound}
         totalStoresFound={totalStoresFound}
         counter={counter}
+        setCounter={setCounter}
       />
 
       <CanvasNewBike

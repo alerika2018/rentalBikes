@@ -8,7 +8,7 @@ export const Container = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: auto;
 
-  div {
+  .store {
     -webkit-box-shadow: 0px 7px 12px 3px #c1c1c1;
     box-shadow: 0px 7px 12px 3px #c1c1c1;
     border-radius: 3px;
@@ -32,11 +32,13 @@ export const Container = styled.div`
         justify-content: center;
         display: flex;
         color: ${theme.colors.purple};
-        margin-top: 1rem;
+        margin: 1rem;
       }
     }
-    div {
+    .metaData {
       /* background-color: rgba(255, 255, 255, 0.6); */
+      display: flex;
+      flex-direction: column;
       color: ${theme.colors.purple};
       height: 150px;
 
@@ -44,6 +46,17 @@ export const Container = styled.div`
       font-weight: bold;
       border: none;
       margin: 0;
+
+      button {
+        background-color: transparent;
+        border: none;
+        color: red;
+      }
+
+      .delete {
+        display: flex;
+        justify-content: flex-end;
+      }
 
       h2 {
         font-size: 1rem;
