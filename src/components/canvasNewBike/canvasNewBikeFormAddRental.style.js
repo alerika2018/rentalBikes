@@ -27,7 +27,10 @@ export const Container = styled.div`
   }
   #divSave {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    #divMessages {
+      color: red;
+    }
   }
 
   #lblBikeType {

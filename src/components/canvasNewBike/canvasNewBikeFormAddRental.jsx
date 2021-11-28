@@ -25,9 +25,9 @@ const CanvasNewBikeFormAddRental = ({
   const handleAddBike = (e) => {
     e.preventDefault();
 
-    validateRentalFields(rental, setRentalMessages);
-    console.log("Messages", rentalMessages);
-    if (rentalMessages !== "") {
+    const message = validateRentalFields(rental);
+    setRentalMessages(message);
+    if (message !== "") {
       return;
     } else {
       const index = bikeRentals.findIndex((bike) => bike.position === position);
@@ -191,7 +191,7 @@ const CanvasNewBikeFormAddRental = ({
         </div>
       </div>
       <div id="divSave">
-        <div>{rentalMessages}</div>
+        <div id="divMessages">{rentalMessages}</div>
         <button onClick={(e) => handleAddBike(e)}>Save Rental</button>
       </div>
     </Container>

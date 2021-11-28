@@ -136,7 +136,7 @@ export const Container = styled.div`
     grid-column: 1/3;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+
     align-items: center;
     #divMessages {
       color: red;

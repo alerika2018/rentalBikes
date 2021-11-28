@@ -71,8 +71,10 @@ const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
 
   const handleNext = (e) => {
     e.preventDefault();
-    validateFormFields(storeObj, setMessages);
-    if (messages !== "") {
+    const message = validateFormFields(storeObj);
+    setMessages(message);
+
+    if (message !== "") {
       return;
     } else {
       //API key to get coordinates based on address
@@ -289,10 +291,7 @@ const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
             <div id="hours">
               {arrDays.map((day, index) => (
                 <div id={day} key={day}>
-                  <label>
-                    {day}
-                    <span>*</span>
-                  </label>
+                  <label>{day}</label>
                   <select
                     onChange={(event) => {
                       return setStoreHours((prevHours) => ({
