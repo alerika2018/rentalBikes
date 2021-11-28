@@ -301,8 +301,10 @@ const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
                     }}
                     id={day.concat("DateInit")}
                     name={day.concat("DateInit")}
-                    defaultValue="default"
-                    required
+                    // defaultValue="default"
+                    defaultValue={
+                      storeHours?.[day.concat("DateInit")] || "default"
+                    }
                   >
                     <option disabled value="default"></option>
                     {hours.map((time) => (
@@ -320,8 +322,9 @@ const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
                     }}
                     id={day.concat("DateEnd")}
                     name={day.concat("DateEnd")}
-                    defaultValue="default"
-                    required
+                    defaultValue={
+                      storeHours?.[day.concat("DateEnd")] || "default"
+                    }
                   >
                     <option disabled value="default"></option>
                     {hours.map((time) => (
