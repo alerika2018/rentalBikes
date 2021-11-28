@@ -17,9 +17,9 @@ const postStore = (req, res) => {
   StoreSchema.save()
     .then((result) => {
       res.status(201).json({
-        data: StoreSchema._id,
+        data: "4545464",
       });
-
+      //StoreSchema._id,
       console.log("Store saved");
     })
     .catch((error) => {
