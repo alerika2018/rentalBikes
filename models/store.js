@@ -104,6 +104,12 @@ const storeSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
+  },
+  {
+    writeConcern: {
+      j: true,
+      wtimeout: 1000,
+    },
   }
 );
 
