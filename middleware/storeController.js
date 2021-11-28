@@ -22,10 +22,7 @@ const postStore = (req, res) => {
 
       console.log("Store saved");
     })
-    .catch((error) =>{
-      console.log(error));
-      // res.status(500).json({error})
-    } 
+    .catch((error) => console.log(error));
 };
 
 const getStores = (req, res) => {
