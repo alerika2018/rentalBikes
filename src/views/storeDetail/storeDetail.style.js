@@ -67,6 +67,11 @@ export const Container = styled.div`
     height: 200px;
     div {
       height: inherit;
+      & :nth-child(2) {
+        & :nth-child(4) {
+          display: none;
+        }
+      }
     }
   }
 

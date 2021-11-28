@@ -10,6 +10,11 @@ export const Container = styled.div`
   margin-top: 1rem;
   border-top: 1px solid ${theme.colors.gray};
 
+  .delete {
+    display: flex;
+    justify-content: space-between;
+  }
+
   label {
     color: ${theme.colors.purple};
     font-size: 1rem;
@@ -34,7 +39,7 @@ export const Container = styled.div`
   }
 
   #lblBikeType {
-    font-size: 2rem !important;
+    font-size: 1.3 rem !important;
     font-weight: bold !important;
   }
 

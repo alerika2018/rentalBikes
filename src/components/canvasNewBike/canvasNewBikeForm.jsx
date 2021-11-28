@@ -165,7 +165,7 @@ const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
               Province<span>*</span>
             </label>
             <select
-              defaultValue={storeObj.storeProvince}
+              defaultValue={storeObj.storeProvince || "default"}
               id="province"
               name="province"
               // defaultValue="default"
@@ -193,7 +193,7 @@ const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
               City<span>*</span>
             </label>
             <select
-              defaultValue={storeObj.storeCity}
+              defaultValue={storeObj.storeCity || "default"}
               id="city"
               name="city"
               required
@@ -355,7 +355,7 @@ const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
 
       {showFormBikes && (
         <form id="bikesForm" onSubmit={(e) => handleSubmit(e)}>
-          <label htmlFor="bikeRental">Bike Rentals</label>
+          {/* <label htmlFor="bikeRental">Bike Rentals</label> */}
           <div id="divButtonAddRental">
             <Button
               width="32px"
@@ -378,6 +378,7 @@ const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
                   setBikeRentals={setBikeRentals}
                   position={index}
                   setDisplaySubmit={setDisplaySubmit}
+                  setRentals={setRentals}
                 />
               </div>
             ))}

@@ -18,7 +18,7 @@ const StoreDetail = () => {
     axios
       .get(`/api/store/${id}`)
       .then((res) => {
-        console.log(res.data.data, res.data.data.latLng[0]);
+        // console.log(res.data.data, res.data.data.latLng[0]);
         setStore(res.data.data);
 
         setLatLng({

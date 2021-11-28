@@ -2,12 +2,14 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Container } from "./canvasNewBikeFormAddRental.style.js";
 import { validateRentalFields } from ".././../assets/func.js";
+import { FaTrashAlt } from "react-icons/fa";
 
 const CanvasNewBikeFormAddRental = ({
   bikeRentals,
   setBikeRentals,
   position,
   setDisplaySubmit,
+  setRentals,
 }) => {
   const [rental, setRental] = useState({
     position: position,
@@ -47,11 +49,27 @@ const CanvasNewBikeFormAddRental = ({
     }
   };
 
+  const handleDelete = (e) => {
+    e.preventDefault();
+    const index = bikeRentals.findIndex((bike) => bike.position === position);
+    const newa = bikeRentals;
+
+    setRentals((prev) => prev.splice(position, 1));
+    newa.splice(index, 1);
+    console.log("nuevo ya borrado", newa);
+    setBikeRentals(newa);
+  };
+
   return (
     <Container>
-      <label id="lblBikeType" htmlFor="bikeType">
-        Bike type<span>*</span>
-      </label>
+      <div className="delete">
+        <label id="lblBikeType" htmlFor="bikeType">
+          Bike type<span>*</span>
+        </label>
+        <button onClick={(e) => handleDelete(e, position)}>
+          <FaTrashAlt />
+        </button>
+      </div>
 
       <select
         defaultValue="default"
