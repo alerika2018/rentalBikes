@@ -104,13 +104,13 @@ const storeSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  },
-  {
-    writeConcern: {
-      j: true,
-      wtimeout: 1000,
-    },
   }
+  // {
+  //   writeConcern: {
+  //     j: true,
+  //     wtimeout: 1000,
+  //   },
+  // }
 );
 
 const Store = mongoose.model("Store", storeSchema);
