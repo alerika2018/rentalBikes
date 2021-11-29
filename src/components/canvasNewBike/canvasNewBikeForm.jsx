@@ -47,6 +47,7 @@ const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
   const handleProvinceSelection = (e) => {
     setSelectedProvince(e.target.value);
   };
+  const [postErrors, setPostErrors] = useState();
 
   const handleNewRentalOption = (e) => {
     e.preventDefault();
@@ -69,6 +70,7 @@ const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
       })
       .catch((error) => {
         console.log("ERROR AT SAVING STORE:", error.response.data);
+        setPostErrors(error.response.data);
       });
   };
 
@@ -358,7 +360,6 @@ const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
 
       {showFormBikes && (
         <form id="bikesForm" onSubmit={(e) => handleSubmit(e)}>
-          {/* <label htmlFor="bikeRental">Bike Rentals</label> */}
           <div id="divButtonAddRental">
             <Button
               width="32px"
@@ -381,9 +382,13 @@ const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
                   setBikeRentals={setBikeRentals}
                   position={index}
                   setDisplaySubmit={setDisplaySubmit}
-                  setRentals={setRentals}
                 />
               </div>
+            ))}
+          </div>
+          <div id="divErrors">
+            {postErrors?.map((error, index) => (
+              <label key={index}>{error.message}</label>
             ))}
           </div>
 

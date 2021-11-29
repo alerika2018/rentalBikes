@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Container } from "./canvasNewBikeFormAddRental.style.js";
 import { validateRentalFields } from ".././../assets/func.js";
 import { FaTrashAlt } from "react-icons/fa";
@@ -9,18 +9,18 @@ const CanvasNewBikeFormAddRental = ({
   setBikeRentals,
   position,
   setDisplaySubmit,
-  setRentals,
+  // setRentals,
 }) => {
   const [rental, setRental] = useState({
     position: position,
-    bikeType: "",
-    bikeDescription: "",
-    bikeTime: "",
-    bikePrice: "",
-    bikeTime2: "",
-    bikePrice2: "",
-    bikeTime3: "",
-    bikePrice3: "",
+    bikeType: bikeRentals[position - 1]?.bikeType || "",
+    bikeDescription: bikeRentals[position - 1]?.bikeDescription || "",
+    bikeTime: bikeRentals[position - 1]?.bikeTime || "",
+    bikePrice: bikeRentals[position - 1]?.bikePrice || "",
+    bikeTime2: bikeRentals[position - 1]?.bikeTime2 || "",
+    bikePrice2: bikeRentals[position - 1]?.bikePrice2 || "",
+    bikeTime3: bikeRentals[position - 1]?.bikeTime3 || "",
+    bikePrice3: bikeRentals[position - 1]?.bikePrice3 || "",
   });
   const [rentalMessages, setRentalMessages] = useState("");
 
@@ -38,7 +38,7 @@ const CanvasNewBikeFormAddRental = ({
         const newa = bikeRentals;
 
         newa.splice(index, 1, rental);
-
+        setRentalMessages("Bike rental updated");
         setBikeRentals(newa);
       } else {
         setRentalMessages("Bike rental saved");
@@ -51,15 +51,16 @@ const CanvasNewBikeFormAddRental = ({
 
   const handleDelete = (e) => {
     e.preventDefault();
-    const index = bikeRentals.findIndex((bike) => bike.position === position);
-    const newa = bikeRentals;
+    // const index = bikeRentals.findIndex((bike) => bike.position === position);
+    // const newa = bikeRentals;
 
-    setRentals((prev) => prev.splice(position, 1));
-    newa.splice(index, 1);
-    console.log("nuevo ya borrado", newa);
-    setBikeRentals(newa);
+    // setRentals((prev) => prev.splice(position, 1));
+    // newa.splice(index, 1);
+    // console.log("nuevo ya borrado", newa);
+    // setBikeRentals(newa);
   };
 
+  console.log("bike type", bikeRentals, bikeRentals[position - 1]?.bikeType);
   return (
     <Container>
       <div className="delete">
@@ -72,7 +73,7 @@ const CanvasNewBikeFormAddRental = ({
       </div>
 
       <select
-        defaultValue="default"
+        defaultValue={bikeRentals[position - 1]?.bikeType || "default"}
         name="bikeType"
         onChange={(event) => {
           return setRental((prev) => ({
@@ -103,6 +104,7 @@ const CanvasNewBikeFormAddRental = ({
             bikeDescription: event.target.value,
           }));
         }}
+        defaultValue={bikeRentals[position - 1]?.bikeDescription}
         required
       />
       <div id="divTimePrices">
@@ -122,6 +124,7 @@ const CanvasNewBikeFormAddRental = ({
               name="time1"
               placeholder="e.g. 2 hours"
               required
+              defaultValue={bikeRentals[position - 1]?.bikeTime}
             />
           </div>
           <div id="divPrice">
@@ -140,6 +143,7 @@ const CanvasNewBikeFormAddRental = ({
               min="0"
               name="price1"
               required
+              defaultValue={bikeRentals[position - 1]?.bikePrice}
             />
           </div>
         </div>
@@ -157,6 +161,7 @@ const CanvasNewBikeFormAddRental = ({
               type="text"
               name="time2"
               placeholder="e.g. 2 hours"
+              defaultValue={bikeRentals[position - 1]?.bikeTime2}
             />
           </div>
           <div id="divPrice">
@@ -172,6 +177,7 @@ const CanvasNewBikeFormAddRental = ({
               step="0.1"
               min="0"
               name="price2"
+              defaultValue={bikeRentals[position - 1]?.bikePrice2}
             />
           </div>
         </div>
@@ -189,6 +195,7 @@ const CanvasNewBikeFormAddRental = ({
               type="text"
               name="time3"
               placeholder="e.g. 2 hours"
+              defaultValue={bikeRentals[position - 1]?.bikeTime3}
             />
           </div>
           <div id="divPrice">
@@ -204,6 +211,7 @@ const CanvasNewBikeFormAddRental = ({
               step="0.1"
               min="0"
               name="price3"
+              defaultValue={bikeRentals[position - 1]?.bikePrice3}
             />
           </div>
         </div>

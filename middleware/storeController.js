@@ -2,24 +2,35 @@ const Store = require("../models/store.js");
 
 const postStore = (req, res) => {
   let StoreSchema = new Store({
-    storeName: req.body.storeName,
-    storeAddress: req.body.storeAddress,
-    storeProvince: req.body.storeProvince,
-    storeCity: req.body.storeCity,
-    storePhone: req.body.storePhone,
-    storeEmail: req.body.storeEmail,
-    storeWebsite: req.body.storeWebsite,
-    storeDescription: req.body.storeDescription,
-    storeHours: req.body.storeHours,
-    storeRentals: req.body.storeRentals,
-    latLng: req.body.latLng,
+    storeName: res.locals.value.storeName,
+    storeAddress: res.locals.value.storeAddress,
+    storeProvince: res.locals.value.storeProvince,
+    storeCity: res.locals.value.storeCity,
+    storePhone: res.locals.value.storePhone,
+    storeEmail: res.locals.value.storeEmail,
+    storeWebsite: res.locals.value.storeWebsite,
+    storeDescription: res.locals.value.storeDescription,
+    storeHours: res.locals.value.storeHours,
+    storeRentals: res.locals.value.storeRentals,
+    latLng: res.locals.value.latLng,
   });
+  // storeName: req.body.storeName,
+  // storeAddress: req.body.storeAddress,
+  // storeProvince: req.body.storeProvince,
+  // storeCity: req.body.storeCity,
+  // storePhone: req.body.storePhone,
+  // storeEmail: req.body.storeEmail,
+  // storeWebsite: req.body.storeWebsite,
+  // storeDescription: req.body.storeDescription,
+  // storeHours: req.body.storeHours,
+  // storeRentals: req.body.storeRentals,
+  // latLng: req.body.latLng,
   StoreSchema.save()
     .then((result) => {
       res.status(201).json({
-        data: "4545464",
+        data: StoreSchema._id,
       });
-      //StoreSchema._id,
+
       console.log("Store saved");
     })
     .catch((error) => {

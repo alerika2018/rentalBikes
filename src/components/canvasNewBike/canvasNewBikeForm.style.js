@@ -143,6 +143,12 @@ export const Container = styled.div`
     }
   }
 
+  #divErrors {
+    label {
+      color: red;
+    }
+  }
+
   #divSubmit {
     display: flex;
     justify-content: space-evenly;

@@ -420,7 +420,6 @@ const validators = (req, res, next) => {
       .string()
       .empty("")
       .trim()
-      .required()
       .custom((value) => {
         if (!validator.isMobilePhone(value, "en-CA")) {
           throw new Error();
@@ -429,7 +428,6 @@ const validators = (req, res, next) => {
         }
       })
       .messages({
-        "any.required": "Please enter a phone number",
         "any.custom": "Please enter a valid phone number",
       }),
     storeEmail: joi
@@ -462,7 +460,7 @@ const validators = (req, res, next) => {
       })
       .messages({
         "any.required": "Please enter the store website URL",
-        "any.custom": "Please enter a valid wabsite URL",
+        "any.custom": "Please enter a valid website URL",
       }),
     storeDescription: joi
       .string()
@@ -556,7 +554,7 @@ const validators = (req, res, next) => {
         bikeTime3: joi.string().empty("").optional(),
       })
     ),
-    storeHours: joi.array(),
+    storeHours: joi.object(),
   });
 
   const { value, error } = bikeSchema.validate(data, {
@@ -570,10 +568,6 @@ const validators = (req, res, next) => {
     res.locals.value = value;
     next();
   }
-  // res.locals.value = value;
-  // res.locals.error = error;
-
-  // next();
 };
 
 exports.validators = validators;
