@@ -14,17 +14,7 @@ const postStore = (req, res) => {
     storeRentals: res.locals.value.storeRentals,
     latLng: res.locals.value.latLng,
   });
-  // storeName: req.body.storeName,
-  // storeAddress: req.body.storeAddress,
-  // storeProvince: req.body.storeProvince,
-  // storeCity: req.body.storeCity,
-  // storePhone: req.body.storePhone,
-  // storeEmail: req.body.storeEmail,
-  // storeWebsite: req.body.storeWebsite,
-  // storeDescription: req.body.storeDescription,
-  // storeHours: req.body.storeHours,
-  // storeRentals: req.body.storeRentals,
-  // latLng: req.body.latLng,
+
   StoreSchema.save()
     .then((result) => {
       res.status(201).json({

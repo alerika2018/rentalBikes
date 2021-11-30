@@ -9,18 +9,19 @@ const CanvasNewBikeFormAddRental = ({
   setBikeRentals,
   position,
   setDisplaySubmit,
-  // setRentals,
+  setRentals,
+  rentals,
 }) => {
   const [rental, setRental] = useState({
     position: position,
-    bikeType: bikeRentals[position - 1]?.bikeType || "",
-    bikeDescription: bikeRentals[position - 1]?.bikeDescription || "",
-    bikeTime: bikeRentals[position - 1]?.bikeTime || "",
-    bikePrice: bikeRentals[position - 1]?.bikePrice || "",
-    bikeTime2: bikeRentals[position - 1]?.bikeTime2 || "",
-    bikePrice2: bikeRentals[position - 1]?.bikePrice2 || "",
-    bikeTime3: bikeRentals[position - 1]?.bikeTime3 || "",
-    bikePrice3: bikeRentals[position - 1]?.bikePrice3 || "",
+    bikeType: bikeRentals[position]?.bikeType || "",
+    bikeDescription: bikeRentals[position]?.bikeDescription || "",
+    bikeTime: bikeRentals[position]?.bikeTime || "",
+    bikePrice: bikeRentals[position]?.bikePrice || "",
+    bikeTime2: bikeRentals[position]?.bikeTime2 || "",
+    bikePrice2: bikeRentals[position]?.bikePrice2 || "",
+    bikeTime3: bikeRentals[position]?.bikeTime3 || "",
+    bikePrice3: bikeRentals[position]?.bikePrice3 || "",
   });
   const [rentalMessages, setRentalMessages] = useState("");
 
@@ -29,6 +30,7 @@ const CanvasNewBikeFormAddRental = ({
 
     const message = validateRentalFields(rental);
     setRentalMessages(message);
+
     if (message !== "") {
       return;
     } else {
@@ -49,31 +51,43 @@ const CanvasNewBikeFormAddRental = ({
     }
   };
 
+  const immutableDelete = (arr, index) => {
+    return arr.slice(0, index).concat(arr.slice(index + 1));
+  };
+
   const handleDelete = (e) => {
     e.preventDefault();
     // const index = bikeRentals.findIndex((bike) => bike.position === position);
-    // const newa = bikeRentals;
 
-    // setRentals((prev) => prev.splice(position, 1));
-    // newa.splice(index, 1);
-    // console.log("nuevo ya borrado", newa);
-    // setBikeRentals(newa);
+    // console.log("position", position);
+    // const indexRentals = rentals.findIndex((item) => (item = position));
+    // console.log("indexRentals", indexRentals);
+
+    // if (index !== -1) {
+    //   console.log("entro al -1");
+    //   setBikeRentals((prev) => prev.splice(index, 1));
+    // }
+
+    setRentals((prev) => immutableDelete(prev, indexRentals));
+    // setRentals((prev) => prev.splice(indexRentals, 1));
+    // console.log("Deleted index #", index);
   };
 
-  console.log("bike type", bikeRentals, bikeRentals[position - 1]?.bikeType);
+  // console.log("bikeRentals", bikeRentals);
+  console.log("rentals", rentals);
   return (
     <Container>
       <div className="delete">
         <label id="lblBikeType" htmlFor="bikeType">
-          Bike type<span>*</span>
+          Bike type <span>*</span>
         </label>
-        <button onClick={(e) => handleDelete(e, position)}>
+        {/* <button onClick={(e) => handleDelete(e, position)}>
           <FaTrashAlt />
-        </button>
+        </button> */}
       </div>
 
       <select
-        defaultValue={bikeRentals[position - 1]?.bikeType || "default"}
+        defaultValue={bikeRentals[position]?.bikeType || "default"}
         name="bikeType"
         onChange={(event) => {
           return setRental((prev) => ({
@@ -104,7 +118,7 @@ const CanvasNewBikeFormAddRental = ({
             bikeDescription: event.target.value,
           }));
         }}
-        defaultValue={bikeRentals[position - 1]?.bikeDescription}
+        defaultValue={bikeRentals[position]?.bikeDescription}
         required
       />
       <div id="divTimePrices">
@@ -124,7 +138,7 @@ const CanvasNewBikeFormAddRental = ({
               name="time1"
               placeholder="e.g. 2 hours"
               required
-              defaultValue={bikeRentals[position - 1]?.bikeTime}
+              defaultValue={bikeRentals[position]?.bikeTime}
             />
           </div>
           <div id="divPrice">
@@ -143,7 +157,7 @@ const CanvasNewBikeFormAddRental = ({
               min="0"
               name="price1"
               required
-              defaultValue={bikeRentals[position - 1]?.bikePrice}
+              defaultValue={bikeRentals[position]?.bikePrice}
             />
           </div>
         </div>
@@ -161,7 +175,7 @@ const CanvasNewBikeFormAddRental = ({
               type="text"
               name="time2"
               placeholder="e.g. 2 hours"
-              defaultValue={bikeRentals[position - 1]?.bikeTime2}
+              defaultValue={bikeRentals[position]?.bikeTime2}
             />
           </div>
           <div id="divPrice">
@@ -177,7 +191,7 @@ const CanvasNewBikeFormAddRental = ({
               step="0.1"
               min="0"
               name="price2"
-              defaultValue={bikeRentals[position - 1]?.bikePrice2}
+              defaultValue={bikeRentals[position]?.bikePrice2}
             />
           </div>
         </div>
@@ -195,7 +209,7 @@ const CanvasNewBikeFormAddRental = ({
               type="text"
               name="time3"
               placeholder="e.g. 2 hours"
-              defaultValue={bikeRentals[position - 1]?.bikeTime3}
+              defaultValue={bikeRentals[position]?.bikeTime3}
             />
           </div>
           <div id="divPrice">
@@ -211,7 +225,7 @@ const CanvasNewBikeFormAddRental = ({
               step="0.1"
               min="0"
               name="price3"
-              defaultValue={bikeRentals[position - 1]?.bikePrice3}
+              defaultValue={bikeRentals[position]?.bikePrice3}
             />
           </div>
         </div>

@@ -140,6 +140,10 @@ export const Container = styled.div`
 
     .bikeType {
       color: ${theme.colors.lightPurple};
+      font-size: 1rem;
+      span {
+        font-size: 1.2rem;
+      }
     }
     .map {
       grid-column: 3/4;

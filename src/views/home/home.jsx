@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const [matchesDesktop, setMatchesDesktop] = useState(
-    window.matchMedia(`(min-width: ${theme.desktop})`).matches
+    window.matchMedia(`(min-width: ${theme.breakpoints.desktop})`).matches
   );
 
   useEffect(() => {

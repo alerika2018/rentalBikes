@@ -18,7 +18,6 @@ const StoreDetail = () => {
     axios
       .get(`/api/store/${id}`)
       .then((res) => {
-        // console.log(res.data.data, res.data.data.latLng[0]);
         setStore(res.data.data);
 
         setLatLng({
@@ -61,7 +60,9 @@ const StoreDetail = () => {
             <p>{store.storePhone}</p>
             <h2>Website</h2>
             <p>
-              <a href={store.storeWebsite}>{store.storeWebsite}</a>
+              <a href={store.storeWebsite} target="_blank">
+                {store.storeWebsite}
+              </a>
             </p>
           </div>
 
@@ -75,7 +76,8 @@ const StoreDetail = () => {
 
             <h2>Monday</h2>
 
-            {store.storeHours[0]?.MondayDateInit ? (
+            {store.storeHours[0]?.MondayDateInit &&
+            store.storeHours[0]?.MondayDateEnd ? (
               <p>
                 From: <span>{store.storeHours[0].MondayDateInit}</span> to:
                 <span>{store.storeHours[0].MondayDateEnd}</span>{" "}
@@ -86,7 +88,8 @@ const StoreDetail = () => {
 
             <h2>Tuesday</h2>
 
-            {store.storeHours[0]?.TuesdayDateInit ? (
+            {store.storeHours[0]?.TuesdayDateInit &&
+            store.storeHours[0]?.TuesdayDateEnd ? (
               <p>
                 From: <span>{store.storeHours[0].TuesdayDateInit}</span> to:
                 <span>{store.storeHours[0].TuesdayDateEnd}</span>{" "}
@@ -97,7 +100,8 @@ const StoreDetail = () => {
 
             <h2>Wednesday</h2>
 
-            {store.storeHours[0]?.WednesdayDateInit ? (
+            {store.storeHours[0]?.WednesdayDateInit &&
+            store.storeHours[0]?.WednesdayDateEnd ? (
               <p>
                 From: <span>{store.storeHours[0].WednesdayDateInit}</span> to:
                 <span>{store.storeHours[0].WednesdayDateEnd}</span>{" "}
@@ -108,7 +112,8 @@ const StoreDetail = () => {
 
             <h2>Thursday</h2>
 
-            {store.storeHours[0]?.ThursdayDateInit ? (
+            {store.storeHours[0]?.ThursdayDateInit &&
+            store.storeHours[0]?.ThursdayDateEnd ? (
               <p>
                 From: <span>{store.storeHours[0].ThursdayDateInit}</span> to:
                 <span>{store.storeHours[0].ThursdayDateEnd}</span>{" "}
@@ -119,7 +124,8 @@ const StoreDetail = () => {
 
             <h2>Friday</h2>
 
-            {store.storeHours[0]?.FridayDateInit ? (
+            {store.storeHours[0]?.FridayDateInit &&
+            store.storeHours[0]?.FridayDateEnd ? (
               <p>
                 From: <span>{store.storeHours[0].FridayDateInit}</span> to:
                 <span>{store.storeHours[0].FridayDateEnd}</span>{" "}
@@ -129,7 +135,8 @@ const StoreDetail = () => {
             )}
             <h2>Saturday</h2>
 
-            {store.storeHours[0]?.SaturdayDateInit ? (
+            {store.storeHours[0]?.SaturdayDateInit &&
+            store.storeHours[0]?.SaturdayDateEnd ? (
               <p>
                 From: <span>{store.storeHours[0].SaturdayDateInit}</span> to:
                 <span>{store.storeHours[0].SaturdayDateEnd}</span>{" "}
@@ -140,7 +147,8 @@ const StoreDetail = () => {
 
             <h2>Sunday</h2>
 
-            {store.storeHours[0]?.SundayDateInit ? (
+            {store.storeHours[0]?.SundayDateInit &&
+            store.storeHours[0]?.SundayDateEnd ? (
               <p>
                 From: <span>{store.storeHours[0].SundayDateInit}</span> to:
                 <span>{store.storeHours[0].SundayDateEnd}</span>{" "}

@@ -12,7 +12,7 @@ import { validateFormFields } from "../../assets/func.js";
 const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
   const key =
     "OTUwYzg1NjQzMzcyNGE1NWE2YjFlODU0YTU0NThiNzM6YjExNDUzY2EtNzQxZC00NTZhLTliZmEtYjYxNTQyZTBlOGIw";
-  const [rentals, setRentals] = useState([1]);
+  const [rentals, setRentals] = useState([0]);
   const [selectedProvince, setSelectedProvince] = useState();
   const [buttonValue, setButtonValue] = useState("Add more");
   const [storeHours, setStoreHours] = useState();
@@ -53,7 +53,7 @@ const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
     e.preventDefault();
 
     if (rentals.length <= 4) {
-      setRentals((prev) => [...prev, prev.length + 1]);
+      setRentals((prev) => [...prev, prev.length]);
     } else {
       setButtonValue("Save information");
     }
@@ -124,6 +124,8 @@ const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
   useEffect(() => {
     setStoreObj((prev) => ({ ...prev, storeHours: storeHours }));
   }, [storeHours]);
+
+  const style = { fontSize: "1rem" };
 
   return (
     <Container>
@@ -299,19 +301,23 @@ const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
                   <label>{day}</label>
                   <select
                     onChange={(event) => {
-                      return setStoreHours((prevHours) => ({
-                        ...prevHours,
-                        [day.concat("DateInit")]: event.target.value,
-                      }));
+                      if (event.target.value !== "default") {
+                        return setStoreHours((prevHours) => ({
+                          ...prevHours,
+                          [day.concat("DateInit")]: event.target.value,
+                        }));
+                      } else {
+                        delete storeHours[day.concat("DateInit")];
+                        return setStoreHours(storeHours);
+                      }
                     }}
                     id={day.concat("DateInit")}
                     name={day.concat("DateInit")}
-                    // defaultValue="default"
                     defaultValue={
                       storeHours?.[day.concat("DateInit")] || "default"
                     }
                   >
-                    <option disabled value="default"></option>
+                    <option value="default"></option>
                     {hours.map((time) => (
                       <option value={time} key={time}>
                         {time}
@@ -320,10 +326,15 @@ const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
                   </select>
                   <select
                     onChange={(event) => {
-                      return setStoreHours((prevHours) => ({
-                        ...prevHours,
-                        [day.concat("DateEnd")]: event.target.value,
-                      }));
+                      if (event.target.value !== "default") {
+                        return setStoreHours((prevHours) => ({
+                          ...prevHours,
+                          [day.concat("DateEnd")]: event.target.value,
+                        }));
+                      } else {
+                        delete storeHours[day.concat("DateEnd")];
+                        return setStoreHours(storeHours);
+                      }
                     }}
                     id={day.concat("DateEnd")}
                     name={day.concat("DateEnd")}
@@ -331,7 +342,7 @@ const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
                       storeHours?.[day.concat("DateEnd")] || "default"
                     }
                   >
-                    <option disabled value="default"></option>
+                    <option value="default"></option>
                     {hours.map((time) => (
                       <option value={time} key={time}>
                         {time}
@@ -353,6 +364,7 @@ const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
               colorHover={theme.colors.primary}
               title={"Next"}
               onClick={(e) => handleNext(e)}
+              style={style}
             ></Button>
           </div>
         </form>
@@ -382,6 +394,8 @@ const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
                   setBikeRentals={setBikeRentals}
                   position={index}
                   setDisplaySubmit={setDisplaySubmit}
+                  setRentals={setRentals}
+                  rentals={rentals}
                 />
               </div>
             ))}

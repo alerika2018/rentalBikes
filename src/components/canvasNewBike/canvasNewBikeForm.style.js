@@ -147,6 +147,11 @@ export const Container = styled.div`
     label {
       color: red;
     }
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 1rem;
   }
 
   #divSubmit {
