@@ -23,15 +23,19 @@ RentMe is a web application that can be used to store information about business
 
 RentMe was developed using the following tech stack:
 
-- React: functional components and styled components
-- Express
-- MongoDB
-- Node
+- <p align="left"> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> functional components and styled components</p>
+- <p align="left"> <a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> </a>  Express</p>
+- <p align="left"> <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a>MongoDB </P>
+- <p align="left"><a href="https://nodejs.org/en/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="node" width="40" height="40"/> </a> Node</p>
 
 Additional packages for data visualization:
 
-- Leaflet
-- Bootstrap
+- <p align="left"> <a href="https://react-leaflet.js.org/" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Leaflet_logo.svg/1200px-Leaflet_logo.svg.png" alt="leaflet" width="100" height="40"/> </a>Leaflet</p>
+- <p align="left"> <a href="https://getbootstrap.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/> </a>Bootstrap</p>
+
+This prokect is hosted in:
+
+- <p align="left"><a href="https://heroku.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/heroku/heroku-icon.svg" alt="heroku" width="40" height="40"/> </a>Heroku</p>
 
 _RentME is fully responsive with a breakpoint in 800px_
 </br></br>
