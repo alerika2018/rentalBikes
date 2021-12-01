@@ -30,26 +30,42 @@ const postStore = (req, res) => {
 };
 
 const getStores = (req, res) => {
-  Store.find(
-    {}
-    // {
-    //   _id: 1,
-    //   storeName: 1,
-    // }
-  )
-    .exec()
-    .then((results) => {
-      let rest = [];
-      for (i = 0; i < results.length; i++) {
-        let newData = {
-          data: results[i],
-        };
+  if (
+    Object.keys(req.query).length == 0 ||
+    Object.values(req.query)[0] == false
+  ) {
+    Store.find({})
+      .exec()
+      .then((results) => {
+        let rest = [];
+        for (i = 0; i < results.length; i++) {
+          let newData = {
+            data: results[i],
+          };
 
-        rest.push(newData);
-      }
-      res.status(200).json(rest);
+          rest.push(newData);
+        }
+        res.status(200).json(rest);
+      })
+      .catch((error) => console.log(error));
+  } else {
+    Store.find({
+      storeName: { $regex: ".*" + req.query.storeName + ".*", $options: "i" },
     })
-    .catch((error) => console.log(error));
+      .exec()
+      .then((results) => {
+        let rest = [];
+        for (i = 0; i < results.length; i++) {
+          let newData = {
+            data: results[i],
+          };
+
+          rest.push(newData);
+        }
+        res.status(200).json(rest);
+      })
+      .catch((error) => console.log(error));
+  }
 };
 
 const deleteStore = (req, res) => {
@@ -78,4 +94,9 @@ const getProductById = (req, res) => {
     });
 };
 
-module.exports = { postStore, getStores, deleteStore, getProductById };
+module.exports = {
+  postStore,
+  getStores,
+  deleteStore,
+  getProductById,
+};

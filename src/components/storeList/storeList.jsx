@@ -12,13 +12,15 @@ const StoreList = ({
   totalStoresFound,
   counter,
   setCounter,
+  search,
 }) => {
   const [storeList, setStoreList] = useState([]);
   const [getPics, setGetPics] = useState([]);
 
   useEffect(() => {
+    console.log("search", search);
     axios
-      .get("/api/store")
+      .get("/api/v1/store", { params: { storeName: search } })
       .then((results) => {
         setStoreList(results.data);
         setTotalStoresFound(results.data.length);
@@ -35,11 +37,11 @@ const StoreList = ({
           .catch((error) => console.log(error));
       })
       .catch((error) => console.log(error));
-  }, [counter]);
+  }, [counter, search]);
 
   const handleDelete = (id) => {
     axios
-      .delete(`/api/store/${id}`)
+      .delete(`/api/v1/store/${id}`)
       .then((results) => {
         setCounter((prev) => prev + 1);
       })

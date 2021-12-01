@@ -16,7 +16,7 @@ const StoreDetail = () => {
 
   useEffect(() => {
     axios
-      .get(`/api/store/${id}`)
+      .get(`/api/v1/store/${id}`)
       .then((res) => {
         setStore(res.data.data);
 

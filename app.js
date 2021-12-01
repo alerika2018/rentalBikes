@@ -15,7 +15,7 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const router = require("./routes/index.js");
-app.use("/api/store", router);
+app.use("/api/v1/store", router);
 app.get("*", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });

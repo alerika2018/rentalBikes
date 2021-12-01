@@ -2,6 +2,8 @@
 
 ![This is RentME!](src/assets/readme.png)
 
+</br></br>
+
 - [RentME](#rentme)
   - [About this application:](#about-this-application)
   - [Features:](#features)
@@ -11,7 +13,9 @@
     - [Bike Stores](#bike-stores)
     - [Store Detail](#store-detail)
   - [API](#api)
-    - [Custome API](#custome-api)
+    - [Custom API](#custom-api)
+
+</br></br>
 
 ## About this application:
 
@@ -25,6 +29,7 @@ RentMe was developed using the following tech stack:
 - Node
 
 _RentME is fully responsive with a breakpoint in 800px_
+</br></br>
 
 ## Features:
 
@@ -39,6 +44,7 @@ This is where the user can add all the information about a new store, from the n
 **_Detail visualization about an specific store:_**
 
 This page is where the user is redirected coming from the list of stores, this is where all the details and complete information of the store are shown, including the map for an easy location.
+</br></br>
 
 ## How to install RentME
 
@@ -52,6 +58,8 @@ This page is where the user is redirected coming from the list of stores, this i
 6. Run npm run watch
 7. Enjoy!
 
+</br></br>
+
 ## How to use RentME
 
 ### Home
@@ -61,12 +69,13 @@ This page is where the user is redirected coming from the list of stores, this i
 
 ### Bike Stores
 
-- This page will be full of cards showinf basic information of each store.
+- This page will be full of cards to show basic information of each store.
 - Each card contains:
   - Icon to go to the store details page to visualize full data.
   - Store name and address along with a link to the store website.
   - Red trash can icon to delete store.
 - On the upper right corner, there is a circle button with a + sign (in mobile view) or a text "New Store" (in desktop view). This button will show a canvas component where the user can enter the information of the store.
+- On the upper left side, there is an input field to search stores by name.
 - The form to enter the store information is made up of two parts, the first part is to enter information about the store such as the name, description, website url and the hours of operation.The second part is used to enter the information of the types of bicycles that can be rented, as a maximum, the user can enter 5.
 
 ### Store Detail
@@ -74,17 +83,19 @@ This page is where the user is redirected coming from the list of stores, this i
 - This page will be displayed after the user click on one store card (from the Bike Store)
 - This page is used only to display all the information of the store as well as a location map.
 
+</br></br>
+
 ## API
 
 - RentME uses a photo API to display random picture containing bikes in any form. https://api.unsplash.com/
 - RentME helps the user showing a list of Canada Provinces to select from at the moment to enter the address. Also it will display a list of cities depending on the selected province. This data is store using arrays but was taken from https://gist.github.com/jdewit/8755708.
 
-  ### Custome API
+  ### Custom API
 
-  - POST: /api/store --- Send store information
-  - GET: /api/store ---Retrieve list of stores
-  - DELETE: /api/store/:id --- Delete a store by id
-  - GET: /api/store/:id --- Retrive information of one store by id
+  - POST: /api/v1/store --- Send store information
+  - GET: /api/v1/store ---Retrieve list of stores
+  - DELETE: /api/v1/store/:id --- Delete a store by id
+  - GET: /api/v1/store/:id --- Retrive information of one store by id
 
     > Responses are using JSON format
 
@@ -95,16 +106,17 @@ This page is where the user is redirected coming from the list of stores, this i
     **Examples to use endpoints**
 
     - GET
-      - localhost:3000/api/store
-      - Response: All stores in JSON format
+      - localhost:3000/api/v1/store
+      - localhost:3000/api/v1/store?storeName=bike
+      - Response: All stores in JSON format. When nameStore param is empty, will return whole collection, otherwise, will return filtered collection by name.
     - DELETE
-      - localhost:3000/api/store/61a6cce3180f765c545b5db6
+      - localhost:3000/api/v1/store/61a6cce3180f765c545b5db6
       - Response: { "deletedCount": 1 }
     - GET
-      - localhost:3000/api/store/61a559686af7338185be252c
+      - localhost:3000/api/v1/store/61a559686af7338185be252c
       - Response: full information about store with id 61a559686af7338185be252c
     - POST
-      - localhost:3000/api/store
+      - localhost:3000/api/v1/store
       - axios
-        .post("/api/store", storeObj)
+        .post("/api/v1/store", storeObj)
       - storeObj in json format as seen in above picture

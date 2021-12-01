@@ -62,7 +62,7 @@ const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("/api/store", storeObj)
+      .post("/api/v1/store", storeObj)
       .then((res) => {
         console.log("Store saved");
         setCounter((prev) => prev + 1);

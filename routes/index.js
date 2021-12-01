@@ -5,6 +5,7 @@ const {
   getStores,
   deleteStore,
   getProductById,
+  getFindStores,
 } = require("../middleware/storeController.js");
 
 const validations = require("../validators");

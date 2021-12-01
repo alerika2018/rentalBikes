@@ -7,6 +7,7 @@ import CanvasNewBike from "../../components/canvasNewBike/canvasNewBike.jsx";
 import StoreList from "../../components/storeList/storeList.jsx";
 
 import { useState, useEffect } from "react";
+import { FaSistrix } from "react-icons/fa";
 
 export const Stores = () => {
   const [matchesDesktop, setMatchesDesktop] = useState(
@@ -32,11 +33,34 @@ export const Stores = () => {
 
   const [totalStoresFound, setTotalStoresFound] = useState(0);
   const [counter, setCounter] = useState(0);
+  const [search, setSearch] = useState("");
+  const [name, setName] = useState("");
+
+  const handleSearch = () => {
+    setSearch(name);
+  };
+
+  const handleKey = (e) => {
+    if (e.key == "Enter") {
+      handleSearch();
+    }
+  };
+
   return (
     <Container>
       <div id="divTitle">
-        <div>
+        <div id="divBar">
           <h1>Find a place to rent a bike</h1>
+          <div id="divSearch">
+            <input
+              placeholder="Search a store..."
+              onKeyPress={(e) => handleKey(e)}
+              onChange={(e) => setName(e.target.value)}
+            ></input>
+            <button onClick={() => handleSearch()}>
+              <FaSistrix />
+            </button>
+          </div>
         </div>
         <div id="divButtonAddNew">
           {matchesDesktop && (
@@ -73,6 +97,7 @@ export const Stores = () => {
         totalStoresFound={totalStoresFound}
         counter={counter}
         setCounter={setCounter}
+        search={search}
       />
 
       <CanvasNewBike
