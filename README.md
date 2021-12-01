@@ -19,7 +19,7 @@
 
 ## About this application:
 
-RentMe is a web application that can be use to store information about stores dedicated to rent bikes for general public.
+RentMe is a web application that can be used to store information about business dedicated to rent bikes for general public across Canada.
 
 RentMe was developed using the following tech stack:
 
@@ -27,6 +27,11 @@ RentMe was developed using the following tech stack:
 - Express
 - MongoDB
 - Node
+
+Additional packages for data visualization:
+
+- Leaflet
+- Bootstrap
 
 _RentME is fully responsive with a breakpoint in 800px_
 </br></br>
@@ -36,6 +41,10 @@ _RentME is fully responsive with a breakpoint in 800px_
 **_Visualization of all stores:_**
 
 This is where the user can find basic information of all the stores. It's easy to see the all the cards in just one page and select one to get full information. Additionaly, the user can delete a store if needed.
+
+**_Filter stores:_**
+
+There is a filter input on the top of store list where the user can enter a full or parcial store name and the click on the search button or press enter key and the list of store will be updated with results.
 
 **_Add new bike stores:_**
 
@@ -51,7 +60,7 @@ This page is where the user is redirected coming from the list of stores, this i
 1. Clone RentMe repo by using https://github.com/alerika2018/rentalBikes.git
 2. Run npm install to get all dependencies
 3. Create a database in MongoDB Atlas with the name bikeStores
-4. Create a .env
+4. Create a .env with the following environmental variables
    - PORT=3000
    - MONGODB_URL= 'mongodb+srv://username:password@cluster0.id1ka.mongodb.net/bikeStores?retryWrites=true&w=majority'
 5. Run npm run dev
