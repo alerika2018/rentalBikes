@@ -8,6 +8,20 @@ export const Container = styled.div`
   min-height: 75px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  div {
+    label {
+      padding-left: 2rem;
+      width: max-content;
+      color: ${theme.colors.purple};
+      font-size: 3rem;
+      font-weight: bold;
+      span {
+        font-size: 2rem;
+      }
+    }
+  }
 `;
 
 export const ContainerNav = styled.nav`
