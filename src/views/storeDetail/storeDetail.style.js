@@ -149,7 +149,7 @@ export const Container = styled.div`
       grid-column: 3/4;
       grid-row: 4/5;
       height: 100%;
-      z-index: -100;
+      /* z-index: -100; */
       width: 80%;
       div {
         height: inherit;

@@ -10,4 +10,5 @@ export const Container = styled.div`
   background-color: ${theme.colors.lightPurple};
   height: 60px;
   width: 100%;
+  z-index: 1000;
 `;

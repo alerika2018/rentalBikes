@@ -1055,12 +1055,12 @@ const validators = (req, res, next) => {
             return value;
           }
         })
-        .when("SaturdayDateInit", {
-          not: joi.exist(),
-          then: joi.required(),
-        })
+        // .when("SaturdayDateInit", {
+        //   is: joi.exist(),
+        //   then: joi.required(),
+        // })
         .messages({
-          "any.required": "Please select the closing hours for Saturdays",
+          // "any.required": "Please select the closing hours for Saturdays",
           "any.custom": "Please select the closing hour for Saturdays ",
         }),
 
