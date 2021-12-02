@@ -12,7 +12,7 @@ const StoreList = ({ setTotalStoresFound, counter, setCounter, search }) => {
   const [getPics, setGetPics] = useState([]);
 
   useEffect(() => {
-    console.log("search", search);
+    // console.log("search", search);
     axios
       .get("/api/v1/store", { params: { storeName: search } })
       .then((results) => {

@@ -64,7 +64,7 @@ const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
     axios
       .post("/api/v1/store", storeObj)
       .then((res) => {
-        console.log("Store saved");
+        // console.log("Store saved");
         setCounter((prev) => prev + 1);
         handleClose(true);
       })
@@ -88,7 +88,7 @@ const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
         "%20"
       )}&street=${storeObj.storeAddress.replace(" ", "%20")}`;
 
-      console.log(" Obj: ", storeObj);
+      // console.log(" Obj: ", storeObj);
 
       fetch(addressFetch, {
         method: "GET",
