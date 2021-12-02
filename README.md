@@ -12,7 +12,7 @@
     - [Home](#home)
     - [Bike Stores](#bike-stores)
     - [Store Detail](#store-detail)
-  - [API](#api)
+  - [APIs](#apis)
     - [Custom API](#custom-api)
 
 </br></br>
@@ -33,7 +33,7 @@ Additional packages for data visualization:
 - <p align="left"> <a href="https://react-leaflet.js.org/" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Leaflet_logo.svg/1200px-Leaflet_logo.svg.png" alt="leaflet" width="100" height="40"/> </a>Leaflet</p>
 - <p align="left"> <a href="https://getbootstrap.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/> </a>Bootstrap</p>
 
-This prokect is hosted in:
+This project is hosted in:
 
 - <p align="left"><a href="https://heroku.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/heroku/heroku-icon.svg" alt="heroku" width="40" height="40"/> </a>Heroku</p>
 
@@ -98,10 +98,11 @@ This page is where the user is redirected coming from the list of stores, this i
 
 </br></br>
 
-## API
+## APIs
 
 - RentME uses a photo API to display random picture containing bikes in any form. https://api.unsplash.com/
 - RentME helps the user showing a list of Canada Provinces to select from at the moment to enter the address. Also it will display a list of cities depending on the selected province. This data is store using arrays but was taken from https://gist.github.com/jdewit/8755708.
+- RentMe uses a geocoding API to get coordinates for the store location and map visualization. https://developer.myptv.com/APIs/Geocoding%20&%20Places.htm
 
   ### Custom API
 
@@ -112,24 +113,28 @@ This page is where the user is redirected coming from the list of stores, this i
 
     > Responses are using JSON format
 
-    **POST body format**
-
-    ![store POST](src/assets/post.png)
-
     **Examples to use endpoints**
 
-    - GET
-      - localhost:3000/api/v1/store
-      - localhost:3000/api/v1/store?storeName=bike
-      - Response: All stores in JSON format. When nameStore param is empty, will return whole collection, otherwise, will return filtered collection by name.
-    - DELETE
-      - localhost:3000/api/v1/store/61a6cce3180f765c545b5db6
-      - Response: { "deletedCount": 1 }
-    - GET
-      - localhost:3000/api/v1/store/61a559686af7338185be252c
-      - Response: full information about store with id 61a559686af7338185be252c
-    - POST
-      - localhost:3000/api/v1/store
-      - axios
-        .post("/api/v1/store", storeObj)
-      - storeObj in json format as seen in above picture
+    - GET - api/v1/store - api/v1/store?storeName=bike - Response: All stores in JSON format. When nameStore param is empty, will return whole collection, otherwise, will return filtered collection by name. Image below shows a search by "bike".
+
+  ![searchRespose](src/assets/searchResponse.png)
+
+  - DELETE
+    - api/v1/store/61a6cce3180f765c545b5db6
+    - Response: after deleting one document
+
+  ![deleteResponse](src/assets/deleteResponse.png)
+
+  - GET
+    - api/v1/store/61a559686af7338185be252c
+    - Response: full information about store with id 61a559686af7338185be252c
+    - Type of response for this reponse is similar to api/v1/store.
+  - POST
+    - api/v1/store
+    - POST body format
+
+  ![store POST](src/assets/post.png)
+
+  - axios
+
+    .post("/api/v1/store", storeObj) - storeObj in json format as seen in above picture
