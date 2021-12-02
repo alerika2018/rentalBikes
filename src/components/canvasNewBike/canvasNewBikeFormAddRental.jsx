@@ -55,35 +55,12 @@ const CanvasNewBikeFormAddRental = ({
     return arr.slice(0, index).concat(arr.slice(index + 1));
   };
 
-  const handleDelete = (e) => {
-    e.preventDefault();
-    // const index = bikeRentals.findIndex((bike) => bike.position === position);
-
-    // console.log("position", position);
-    // const indexRentals = rentals.findIndex((item) => (item = position));
-    // console.log("indexRentals", indexRentals);
-
-    // if (index !== -1) {
-    //   console.log("entro al -1");
-    //   setBikeRentals((prev) => prev.splice(index, 1));
-    // }
-
-    setRentals((prev) => immutableDelete(prev, indexRentals));
-    // setRentals((prev) => prev.splice(indexRentals, 1));
-    // console.log("Deleted index #", index);
-  };
-
-  // console.log("bikeRentals", bikeRentals);
-  console.log("rentals", rentals);
   return (
     <Container>
       <div className="delete">
         <label id="lblBikeType" htmlFor="bikeType">
           Bike type <span>*</span>
         </label>
-        {/* <button onClick={(e) => handleDelete(e, position)}>
-          <FaTrashAlt />
-        </button> */}
       </div>
 
       <select

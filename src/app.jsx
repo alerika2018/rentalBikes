@@ -5,7 +5,6 @@ import { Switch, Route } from "react-router-dom";
 import Header from "./components/header/header.jsx";
 import Footer from "./components/footer/footer.jsx";
 import Stores from "./views/stores/stores.jsx";
-import About from "./views/about/about.jsx";
 import Home from "./views/home/home.jsx";
 import StoreDetail from "./views/storeDetail/storeDetail.jsx";
 
@@ -17,7 +16,6 @@ const App = () => {
         <Switch>
           <Route path="/home" component={Home} />
           <Route path="/store" component={Stores} />
-          <Route path="/about" component={About} />
           <Route path="/store-detail" component={StoreDetail} />
           <Route path="/" component={Home} />
         </Switch>

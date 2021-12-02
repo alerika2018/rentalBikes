@@ -7,13 +7,7 @@ import { useState, useEffect } from "react";
 import { FaShareSquare } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
 
-const StoreList = ({
-  setTotalStoresFound,
-  totalStoresFound,
-  counter,
-  setCounter,
-  search,
-}) => {
+const StoreList = ({ setTotalStoresFound, counter, setCounter, search }) => {
   const [storeList, setStoreList] = useState([]);
   const [getPics, setGetPics] = useState([]);
 
