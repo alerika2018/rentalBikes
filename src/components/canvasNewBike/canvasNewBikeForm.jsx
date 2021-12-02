@@ -10,8 +10,8 @@ import axios from "axios";
 import { validateFormFields } from "../../assets/func.js";
 
 const CanvasNewBikeForm = ({ setCounter, handleClose }) => {
-  const key =
-    "OTUwYzg1NjQzMzcyNGE1NWE2YjFlODU0YTU0NThiNzM6YjExNDUzY2EtNzQxZC00NTZhLTliZmEtYjYxNTQyZTBlOGIw";
+  const key = process.env.REACT_APP_MAP_API_KEY;
+
   const [rentals, setRentals] = useState([0]);
   const [selectedProvince, setSelectedProvince] = useState();
   const [buttonValue, setButtonValue] = useState("Add more");
