@@ -104,6 +104,8 @@ This page is where the user is redirected coming from the list of stores, this i
 - RentME helps the user showing a list of Canada Provinces to select from at the moment to enter the address. Also it will display a list of cities depending on the selected province. This data is store using arrays but was taken from https://gist.github.com/jdewit/8755708.
 - RentMe uses a geocoding API to get coordinates for the store location and map visualization. https://developer.myptv.com/APIs/Geocoding%20&%20Places.htm
 
+  - To be able to use this API, this project needs a .env inside src folder with a varible name REACT_APP_MAP_API_KEY
+
   ### Custom API
 
   - POST: /api/v1/store --- Send store information
