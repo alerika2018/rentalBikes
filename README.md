@@ -144,4 +144,4 @@ This page is where the user is redirected coming from the list of stores, this i
 
 ## How it works?
 
-![Watch the vide of how it works](https://www.loom.com/share/5fd86f72b3784c329d78f0f32b58042f)
+[![Watch the video](src/assets/video.png)](https://www.loom.com/share/5fd86f72b3784c329d78f0f32b58042f)
