@@ -14,6 +14,7 @@
     - [Store Detail](#store-detail)
   - [APIs](#apis)
     - [Custom API](#custom-api)
+  - [How it works?](#how-it-works)
 
 </br></br>
 
@@ -140,3 +141,7 @@ This page is where the user is redirected coming from the list of stores, this i
   - axios
 
     .post("/api/v1/store", storeObj) - storeObj in json format as seen in above picture
+
+## How it works?
+
+![Watch the vide of how it works](https://www.loom.com/share/5fd86f72b3784c329d78f0f32b58042f)
